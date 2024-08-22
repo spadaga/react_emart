@@ -8,7 +8,7 @@ import ProductDetails from '../store/components/ProductDetails';
 import { CartProvider } from './CartContext';
 import CartDetails from './CartDetails';
 import CommonProducts from '../store/components/CommonProducts';
-import NavBar from '../store/Components/NavBar';
+import NavBar from '../store/components/NavBar';
 const Routing = () => {
     return (
         <div>
