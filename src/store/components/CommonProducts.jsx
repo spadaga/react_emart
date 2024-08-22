@@ -23,7 +23,7 @@ const CommonProducts = () => {
         if (category) {
           const fetchData = async () => {
             try {
-              const response = await fetch(`/src/store/data/${category}.json`);
+              const response = await fetch(`/data/${category}.json`);
               const data = await response.json();
               setProducts(data);
             } catch (error) {

@@ -32,7 +32,7 @@ const Products = () => {
 
 
     // useEffect(() => {
-    //     fetch('/src/store/data/computers.json')  // Fetching from the public folder
+    //     fetch('/data/computers.json')  // Fetching from the public folder
     //       .then(response => response.json())
     //       .then(data => setcomputerData(data))
     //       .catch(error => console.error('Error fetching data:', error));
@@ -40,13 +40,13 @@ const Products = () => {
 
     useEffect(() => {
         // Define the URLs
-        const url1 = "/src/store/data/mobiles.json";
-        const url2 = "/src/store/data/computers.json";
-        const url3 = "/src/store/data/ac.json";
-        const url4 = "/src/store/data/watch.json";
-        const url5 = "/src/store/data/men.json";
-        const url6 = "/src/store/data/woman.json";
-        const url7 = "/src/store/data/furniture.json";
+        const url1 = "/data/mobiles.json";
+        const url2 = "/data/computers.json";
+        const url3 = "/data/ac.json";
+        const url4 = "/data/watch.json";
+        const url5 = "/data/men.json";
+        const url6 = "/data/woman.json";
+        const url7 = "/data/furniture.json";
     
         // Fetch all URLs concurrently
         const fetchAllData = async () => {
