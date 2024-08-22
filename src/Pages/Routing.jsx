@@ -1,13 +1,14 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import NavBar from '../store/Components/NavBar';
-import Products from '../store/Components/Products';
+
+import Products from '../store/components/Products';
 
 import ProductDetails from '../store/components/ProductDetails';
 import { CartProvider } from './CartContext';
 import CartDetails from './CartDetails';
 import CommonProducts from '../store/components/CommonProducts';
+import NavBar from '../store/Components/NavBar';
 const Routing = () => {
     return (
         <div>
