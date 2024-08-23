@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+import { LoadingContext } from '../../Pages/LoadingContext';
 const CommonProducts = () => {
+    const { setLoading } = useContext(LoadingContext);
+
 
 
     const { category } = useParams();
@@ -23,6 +26,9 @@ const CommonProducts = () => {
         if (category) {
           const fetchData = async () => {
             try {
+                setLoading(true);
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        setLoading(false);
               const response = await fetch(`/data/${category}.json`);
               const data = await response.json();
               setProducts(data);
@@ -43,14 +49,21 @@ const CommonProducts = () => {
 
     const navigate = useNavigate(); // Initialize the useNavigate hook
 
-    const handleImageClick = (image) => {
+    const handleImageClick = async(image) => {
      
         // navigate(`/image/${id}`);
+        setLoading(true);
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        setLoading(false);
         navigate('/image-details', { state: { image } });
     };
 
 
-    const handleCheckboxChange = (id) => {
+    const handleCheckboxChange = async(id) => {
+
+        setLoading(true);
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        setLoading(false);
         setSelectedIds(prevState =>
             prevState.includes(id)
                 ? prevState.filter(item => item !== id)

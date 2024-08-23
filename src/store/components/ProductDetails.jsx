@@ -1,11 +1,12 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import { useParams } from 'react-router-dom';
 // import { mobileData } from '../data/mobiles'
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../../Pages/CartContext'
+import { LoadingContext } from '../../Pages/LoadingContext';
 const ProductDetails = () => {
-
+    const { setLoading } = useContext(LoadingContext);
     // const { id } = useParams();
 
     // console.log({mobileData})
@@ -21,7 +22,10 @@ const ProductDetails = () => {
         return <div>Image not found</div>;
     }
 
-    const handleBackClick = () => {
+    const handleBackClick =  async () => {
+        setLoading(true);
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    setLoading(false);
         navigate(-1); // Go back to the previous page
       };
     

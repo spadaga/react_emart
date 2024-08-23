@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 // import Mobiles from './Mobiles'
 import TopMobile from './TopMobile'
+import Loader from './Loader';
 // import TopComputers from './TopComputers'
 // import TopAircondition from './TopAircondition'
 // import TopFurniture from './TopFurniture'
@@ -28,7 +29,7 @@ const Products = () => {
     const [furnitureData, setfurnitureData] = useState([]);
 
 
-
+   
 
 
     // useEffect(() => {
@@ -74,12 +75,13 @@ const Products = () => {
           } catch (error) {
             console.error("Error fetching data:", error);
           }
+          
         };
     
         fetchAllData();
       }, []); // Empty dependency array ensures this runs once when the component mounts
 
-      
+   
     console.log("computers data",computerData)
     return (
         <div>

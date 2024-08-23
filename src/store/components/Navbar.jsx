@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
@@ -6,8 +6,10 @@ import { height, width } from '@fortawesome/free-brands-svg-icons/fa42Group';
 import HorizontalMenu from './HorizontalMenu';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../../Pages/CartContext'
+import { LoadingContext } from '../../Pages/LoadingContext';
 
 const NavBar = () => {
+    const { setLoading } = useContext(LoadingContext);
     const { cart } = useCart();
     const [isCartOpen, setIsCartOpen] = useState(false);
     const toggleCart = () => {
@@ -15,10 +17,17 @@ const NavBar = () => {
     };
     const navigate = useNavigate(); // Initialize the useNavigate hook
 
-    const handleTitleClick = () => {
+    const handleTitleClick = async () => {
+
+        setLoading(true);
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        setLoading(false);
         navigate('/'); // Redirect to the home page
     };
-    const handleCartClick = () => {
+    const handleCartClick = async () => {
+        setLoading(true);
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        setLoading(false);
         navigate('/cart'); // Navigate to cart page
     };
     return (
